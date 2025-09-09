@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me - Suhayb Mustafe</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.7;
+        }
+        a { color: #0077ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        header {
+            background: linear-gradient(90deg, #0077ff 0%, #00c6ff 100%);
+            color: #fff;
+            padding: 40px 0 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav li {
+            margin: 0 25px;
+        }
+        nav a {
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav a.active, nav a:hover {
+            color: #0077ff;
+        }
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 40px 50px;
+        }
+        section {
+            margin-bottom: 60px;
+        }
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            color: #0077ff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .about-me {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .about-me img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            border: 5px solid #0077ff;
+        }
+        .about-me-content {
+            flex: 1;
+        }
+        .timeline {
+            border-left: 3px solid #0077ff;
+            padding-left: 30px;
+            margin-top: 20px;
+        }
+        .timeline-event {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-event:before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 8px;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border: 3px solid #0077ff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .timeline-event h3 {
+            font-size: 1.3rem;
+            color: #222;
+            margin-bottom: 6px;
+        }
+        .timeline-event span {
+            font-size: 1rem;
+            color: #0077ff;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .skill {
+            background: #eaf6ff;
+            color: #0077ff;
+            padding: 10px 22px;
+            border-radius: 22px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: background 0.2s;
+        }
+        .skill:hover {
+            background: #0077ff;
+            color: #fff;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .project-card {
+            background: #f4f6f8;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 22px 18px;
+            transition: box-shadow 0.2s;
+        }
+        .project-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+        .project-card h4 {
+            color: #0077ff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .project-card p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .project-card a {
+            font-size: 0.98rem;
+            color: #0077ff;
+            font-weight: 700;
+        }
+        .education-list {
+            margin-top: 18px;
+        }
+        .education-item {
+            background: #eaf6ff;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .education-item h4 {
+            color: #0077ff;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .education-item span {
+            color: #222;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #eaf6ff;
+            padding: 30px 28px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #0077ff;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #b3d8ff;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #fff;
+            transition: border 0.2s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border: 1.5px solid #0077ff;
+            outline: none;
+        }
+        .contact-form button {
+            background: #0077ff;
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .contact-form button:hover {
+            background: #005bb5;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        /* Responsive */
+        @media (max-width: 900px) {
+            main { padding: 30px 10px; }
+            .about-me { flex-direction: column; gap: 18px; }
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            section h2 { font-size: 1.3rem; }
+            nav ul { flex-direction: column; }
+            nav li { margin: 10px 0; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+        /* Decorative lines for large site */
+        .decorative-line {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #0077ff 0%, #00c6ff 100%);
+            margin: 40px 0;
+            border-radius: 4px;
+            opacity: 0.2;
+        }
+        /* Extra content for large site */
+        .quote-section {
+            background: #eaf6ff;
+            border-radius: 10px;
+            padding: 30px 40px;
+            margin: 40px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+        .quote-section blockquote {
+            font-size: 1.3rem;
+            color: #0077ff;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+        .quote-section cite {
+            color: #222;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        /* Testimonials */
+        .testimonials {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .testimonial-card {
+            background: #f4f6f8;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 18px 22px;
+            font-size: 1rem;
+            color: #333;
+            position: relative;
+        }
+        .testimonial-card:before {
+            content: "“";
+            font-size: 2.5rem;
+            color: #0077ff;
+            position: absolute;
+            left: 12px;
+            top: 8px;
+            opacity: 0.2;
+        }
+        .testimonial-card cite {
+            display: block;
+            margin-top: 12px;
+            color: #0077ff;
+            font-weight: 700;
+            font-size: 0.98rem;
+        }
+        /* Large site: extra sections */
+        .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .hobby {
+            background: #eaf6ff;
+            color: #0077ff;
+            padding: 10px 22px;
+            border-radius: 22px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: background 0.2s;
+        }
+        .hobby:hover {
+            background: #0077ff;
+            color: #fff;
+        }
+        /* Achievements */
+        .achievements-list {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .achievement-card {
+            background: #eaf6ff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 18px 22px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .achievement-card h4 {
+            color: #0077ff;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        /* Blog */
+        .blog-list {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .blog-card {
+            background: #f4f6f8;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 18px 22px;
+            font-size: 1rem;
+            color: #333;
+            transition: box-shadow 0.2s;
+        }
+        .blog-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+        .blog-card h4 {
+            color: #0077ff;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .blog-card a {
+            color: #0077ff;
+            font-weight: 700;
+            font-size: 0.98rem;
+        }
+        /* FAQ */
+        .faq-list {
+            margin-top: 18px;
+        }
+        .faq-item {
+            background: #eaf6ff;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .faq-item h4 {
+            color: #0077ff;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        /* End of large site styles */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Suhayb Mustafe</h1>
+        <p>Welcome to my personal website! Discover my journey, studies, projects, and more.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about" class="active">About Me</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#studies">Studies</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-me">
+                <img src="Suhaib.png" alt="Suhayb Mustafe">
+                <div class="about-me-content">
+                    <p>
+                        Hello! I'm Suhayb Mustafe, a passionate learner and aspiring software developer based in [Your City]. My journey has been shaped by curiosity, dedication, and a love for technology. I enjoy exploring new ideas, building creative projects, and sharing knowledge with others.
+                    </p>
+                    <p>
+                        Outside of coding, I love reading, traveling, and connecting with people from diverse backgrounds. This website is a window into my life, studies, achievements, and dreams.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="timeline">
+            <h2>My Life Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-event">
+                    <span>2000</span>
+                    <h3>Born in [Your Birthplace]</h3>
+                    <p>Started my journey in a vibrant community that inspired my curiosity and creativity.</p>
+                </div>
+                <div class="timeline-event">
+                    <span>2010</span>
+                    <h3>Discovered Computers</h3>
+                    <p>Got my first computer and began exploring the world of technology and programming.</p>
+                </div>
+                <div class="timeline-event">
+                    <span>2016</span>
+                    <h3>High School Graduation</h3>
+                    <p>Graduated with honors, excelling in mathematics and science.</p>
+                </div>
+                <div class="timeline-event">
+                    <span>2017</span>
+                    <h3>Started University</h3>
+                    <p>Enrolled in [Your University], majoring in Computer Science.</p>
+                </div>
+                <div class="timeline-event">
+                    <span>2020</span>
+                    <h3>Internship at Tech Company</h3>
+                    <p>Worked as a software engineering intern, gaining hands-on experience in real-world projects.</p>
+                </div>
+                <div class="timeline-event">
+                    <span>2022</span>
+                    <h3>Graduated University</h3>
+                    <p>Earned my degree and started working on personal and freelance projects.</p>
+                </div>
+                <div class="timeline-event">
+                    <span>2023</span>
+                    <h3>Launched My Portfolio</h3>
+                    <p>Created this website to showcase my journey, skills, and achievements.</p>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="studies">
+            <h2>My Studies</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <h4>Bachelor of Computer Science</h4>
+                    <span>[HArgeisa University], 2017-2022</span>
+                    <p>Focused on software engineering, algorithms, and web development. Participated in coding competitions and research projects.</p>
+                </div>
+                <div class="education-item">
+                    <h4>Online Courses & Certifications</h4>
+                    <span>Coursera, Udemy, edX</span>
+                    <p>Completed courses in Python, JavaScript, React, and Data Science. Continuously learning new technologies.</p>
+                </div>
+                <div class="education-item">
+                    <h4>Workshops & Seminars</h4>
+                    <span>Various Locations</span>
+                    <p>Attended workshops on AI, cybersecurity, and entrepreneurship to broaden my knowledge and network.</p>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">React</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">Git & GitHub</div>
+                <div class="skill">SQL</div>
+                <div class="skill">Java</div>
+                <div class="skill">C++</div>
+                <div class="skill">Machine Learning</div>
+                <div class="skill">UI/UX Design</div>
+                <div class="skill">Problem Solving</div>
+                <div class="skill">Teamwork</div>
+                <div class="skill">Communication</div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>Personal Portfolio Website</h4>
+                    <p>A modern, responsive website to showcase my skills and projects.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h4>Task Manager App</h4>
+                    <p>Built with React and Node.js, helps users organize tasks efficiently.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h4>Weather Dashboard</h4>
+                    <p>Displays real-time weather data using public APIs and interactive charts.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h4>Machine Learning Model</h4>
+                    <p>Developed a predictive model for analyzing trends in large datasets.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h4>Blog Platform</h4>
+                    <p>Created a full-stack blog platform with user authentication and comments.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h4>Mobile Game</h4>
+                    <p>Designed and developed a fun mobile game using Unity and C#.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Nature">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Coding">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Travel">
+                <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=400&q=80" alt="Workshop">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Teamwork">
+                <img src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0a8b7?auto=format&fit=crop&w=400&q=80" alt="Achievement">
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="hobbies">
+            <h2>Hobbies & Interests</h2>
+            <div class="hobbies-list">
+                <div class="hobby">Reading</div>
+                <div class="hobby">Traveling</div>
+                <div class="hobby">Photography</div>
+                <div class="hobby">Coding</div>
+                <div class="hobby">Gaming</div>
+                <div class="hobby">Music</div>
+                <div class="hobby">Cooking</div>
+                <div class="hobby">Sports</div>
+                <div class="hobby">Volunteering</div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement-card">
+                    <h4>Hackathon Winner</h4>
+                    <p>Won first place in [Hackathon Name] for developing an innovative app.</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>Dean's List</h4>
+                    <p>Recognized for academic excellence during university studies.</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>Open Source Contributor</h4>
+                    <p>Contributed to several open source projects on GitHub.</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>Volunteer Work</h4>
+                    <p>Organized coding workshops for local students.</p>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="blog">
+            <h2>Blog</h2>
+            <div class="blog-list">
+                <div class="blog-card">
+                    <h4>How I Started Coding</h4>
+                    <p>My journey into programming and the lessons I've learned along the way.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="blog-card">
+                    <h4>Tips for Learning New Technologies</h4>
+                    <p>Strategies to stay updated and master new programming languages.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="blog-card">
+                    <h4>Balancing Studies and Life</h4>
+                    <p>How I manage my time between academics, projects, and hobbies.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="blog-card">
+                    <h4>My Favorite Coding Resources</h4>
+                    <p>Websites, books, and courses that helped me grow as a developer.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section class="quote-section">
+            <blockquote>
+                "The best way to predict the future is to create it."
+            </blockquote>
+            <cite>- Peter Drucker</cite>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    Suhayb is a dedicated and talented developer. His passion for learning is truly inspiring.
+                    <cite>- Mentor</cite>
+                </div>
+                <div class="testimonial-card">
+                    Working with Suhayb was a pleasure. He brings creativity and professionalism to every project.
+                    <cite>- Project Partner</cite>
+                </div>
+                <div class="testimonial-card">
+                    Suhayb's workshops helped me understand coding concepts easily. Highly recommended!
+                    <cite>- Workshop Attendee</cite>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>What programming languages do you know?</h4>
+                    <p>I am proficient in Python, JavaScript, Java, C++, and more.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How can I contact you?</h4>
+                    <p>You can use the contact form below or reach out via email.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Are you available for freelance work?</h4>
+                    <p>Yes, I am open to freelance opportunities. Please send me a message!</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What are your future goals?</h4>
+                    <p>I aim to become a leading software engineer and contribute to impactful projects.</p>
+                </div>
+            </div>
+        </section>
+        <div class="decorative-line"></div>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form class="contact-form" autocomplete="off">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        &copy; 2024 Suhayb Mustafe. All rights reserved.
+    </footer>
+    <script>
+        // Navigation active link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Contact form handler (demo only)
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message!');
+            this.reset();
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Large site: add extra dummy content for line count
+        for (let i = 0; i < 50; i++) {
+            const dummy = document.createElement('div');
+            dummy.style.display = 'none';
+            dummy.textContent = 'Extra line ' + i;
+            document.body.appendChild(dummy);
+        }
+    </script>
+    
+</body>
+</html>
+
